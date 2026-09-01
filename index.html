@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Erwin — Robotics Algorithm Engineer. Real-to-Sim, reinforcement learning, robot control and teleoperation."
+    />
+    <meta name="theme-color" content="#f3f7f8" />
+    <title>Erwin · Robotics Algorithm Engineer</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-grid" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Erwin home">
+        <span class="brand-mark">E</span>
+        <span class="brand-copy">
+          <strong>ERWIN</strong>
+          <small>ROBOTICS / 01</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#roadmap" data-i18n="nav.roadmap">技术主线</a>
+        <a href="#projects" data-i18n="nav.projects">项目</a>
+        <a href="#stack" data-i18n="nav.stack">能力栈</a>
+        <a href="#contact" data-i18n="nav.contact">联系</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="text-button" id="language-toggle" type="button" aria-label="Switch language">
+          EN
+        </button>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle color theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero shell">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">
+            <span class="status-dot"></span>
+            <span data-i18n="hero.eyebrow">机器人算法工程师 · 北京</span>
+          </div>
+          <h1 data-i18n-html="hero.title">
+            让机器人从<br />理解自身，走向<span>可靠操作</span>
+          </h1>
+          <p class="hero-lead" data-i18n="hero.lead">
+            聚焦机械臂动力学、执行器建模、强化学习与双边遥操作，打通从真实系统辨识、仿真训练到实机部署的完整链路。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#projects">
+              <span data-i18n="hero.viewWork">查看核心项目</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12h14M13 6l6 6-6 6"></path></svg>
+            </a>
+            <a class="secondary-button" href="https://github.com/Mj-Erwin" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7A5.4 5.4 0 0 0 19.3 4 5 5 0 0 0 19.2.5S18 0 15 1.8a13.4 13.4 0 0 0-7 0C5 .1 3.8.5 3.8.5A5 5 0 0 0 3.7 4a5.4 5.4 0 0 0-1.5 3.7c0 5.4 3.5 6.6 6.8 7A4.8 4.8 0 0 0 8 18v4M8 19c-3 .9-3-1.5-4-2"></path></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-system reveal" aria-label="Robotics system map">
+          <div class="system-header">
+            <span>SYSTEM MAP</span>
+            <span class="system-live">LIVE</span>
+          </div>
+          <div class="orbit-stage">
+            <div class="orbit orbit-outer"></div>
+            <div class="orbit orbit-inner"></div>
+            <div class="axis axis-x"></div>
+            <div class="axis axis-y"></div>
+            <div class="core-node">
+              <span>ROBOT</span>
+              <strong>∑</strong>
+              <small>CLOSED LOOP</small>
+            </div>
+            <div class="satellite satellite-a"><i></i><span>REAL</span></div>
+            <div class="satellite satellite-b"><i></i><span>SIM</span></div>
+            <div class="satellite satellite-c"><i></i><span>LEARN</span></div>
+            <div class="satellite satellite-d"><i></i><span>DEPLOY</span></div>
+          </div>
+          <div class="system-legend">
+            <span><i class="legend-real"></i>Real-to-Sim</span>
+            <span><i class="legend-learn"></i>Policy Learning</span>
+            <span><i class="legend-deploy"></i>Sim-to-Real</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="metrics shell reveal" aria-label="Selected engineering metrics">
+        <article>
+          <span class="metric-index">01</span>
+          <strong>23.5<small>%</small></strong>
+          <p data-i18n="metrics.position">执行器残差模型降低关节位置 RMSE</p>
+        </article>
+        <article>
+          <span class="metric-index">02</span>
+          <strong>56.2<small>%</small></strong>
+          <p data-i18n="metrics.velocity">关节速度 RMSE 进一步降低</p>
+        </article>
+        <article>
+          <span class="metric-index">03</span>
+          <strong>1024</strong>
+          <p data-i18n="metrics.envs">Isaac Lab 并行训练环境</p>
+        </article>
+        <article>
+          <span class="metric-index">04</span>
+          <strong>200<small>Hz</small></strong>
+          <p data-i18n="metrics.control">遥操作补偿与控制下发频率</p>
+        </article>
+      </section>
+
+      <section class="section shell" id="roadmap">
+        <div class="section-heading reveal">
+          <div>
+            <span class="section-number">01 / ROADMAP</span>
+            <h2 data-i18n="roadmap.title">一条贯穿真实与仿真的技术主线</h2>
+          </div>
+          <p data-i18n="roadmap.lead">
+            不是彼此割裂的项目集合，而是围绕“让机器人在真实世界可靠工作”构建的闭环。
+          </p>
+        </div>
+
+        <div class="roadmap-grid reveal">
+          <article class="roadmap-card">
+            <span class="roadmap-step">01</span>
+            <div class="roadmap-icon">R</div>
+            <h3 data-i18n="roadmap.real.title">理解真实机器人</h3>
+            <p data-i18n="roadmap.real.copy">采集实机轨迹，辨识重力、惯性与谐波减速器摩擦特性。</p>
+            <ul>
+              <li>Dynamics Identification</li>
+              <li>Friction Modeling</li>
+              <li>Excitation Design</li>
+            </ul>
+          </article>
+          <div class="roadmap-link"><span>Real-to-Sim</span><i></i></div>
+          <article class="roadmap-card accent-card">
+            <span class="roadmap-step">02</span>
+            <div class="roadmap-icon">S</div>
+            <h3 data-i18n="roadmap.sim.title">建立可信仿真</h3>
+            <p data-i18n="roadmap.sim.copy">将参数模型与学习型执行器残差注入 Isaac Lab，缩小状态转移误差。</p>
+            <ul>
+              <li>Actuator Residual</li>
+              <li>Isaac Sim / Lab</li>
+              <li>System Alignment</li>
+            </ul>
+          </article>
+          <div class="roadmap-link"><span>Policy</span><i></i></div>
+          <article class="roadmap-card">
+            <span class="roadmap-step">03</span>
+            <div class="roadmap-icon">π</div>
+            <h3 data-i18n="roadmap.learn.title">学习接触操作</h3>
+            <p data-i18n="roadmap.learn.copy">利用 PPO、课程学习与域随机化训练双臂非抓取式操作策略。</p>
+            <ul>
+              <li>Contact-rich RL</li>
+              <li>Dual-arm PPO</li>
+              <li>Curriculum</li>
+            </ul>
+          </article>
+          <div class="roadmap-link"><span>Sim-to-Real</span><i></i></div>
+          <article class="roadmap-card">
+            <span class="roadmap-step">04</span>
+            <div class="roadmap-icon">D</div>
+            <h3 data-i18n="roadmap.deploy.title">面向实机部署</h3>
+            <p data-i18n="roadmap.deploy.copy">处理观测缺失、噪声与动力学变化，让策略落到真实硬件。</p>
+            <ul>
+              <li>Partial Observation</li>
+              <li>Robust Deployment</li>
+              <li>Closed-loop Control</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section projects-section" id="projects">
+        <div class="shell">
+          <div class="section-heading reveal">
+            <div>
+              <span class="section-number">02 / SELECTED WORK</span>
+              <h2 data-i18n="projects.title">核心项目</h2>
+            </div>
+            <p data-i18n="projects.lead">从模型、控制到学习算法，展示可落地的机器人系统能力。</p>
+          </div>
+
+          <div class="project-list">
+            <article class="project-card featured-project reveal">
+              <div class="project-meta">
+                <span class="project-number">P / 01</span>
+                <span class="project-state"><i></i>ACTIVE</span>
+              </div>
+              <div class="project-content">
+                <div>
+                  <p class="project-kicker">REAL-TO-SIM · ACTUATOR MODEL</p>
+                  <h3 data-i18n="projects.actuator.title">机械臂动力学辨识与执行器残差建模</h3>
+                  <p data-i18n="projects.actuator.copy">
+                    从激励轨迹、重力与摩擦联合辨识，到基于强化学习的多步执行器残差模型，形成完整的 Real-to-Sim 对齐链路。
+                  </p>
+                  <div class="tag-row">
+                    <span>System ID</span><span>WLS</span><span>Friction</span><span>Isaac Lab</span><span>PPO</span>
+                  </div>
+                </div>
+                <div class="project-result">
+                  <span data-i18n="projects.result">代表性结果</span>
+                  <div class="result-line"><strong>1.5531°</strong><i></i><strong>1.1886°</strong></div>
+                  <small>Joint-position RMSE · −23.5%</small>
+                </div>
+              </div>
+              <div class="pipeline" aria-label="Real-to-sim pipeline">
+                <span data-i18n="projects.pipeline.collect">实机采集</span><i></i>
+                <span data-i18n="projects.pipeline.identify">参数辨识</span><i></i>
+                <span data-i18n="projects.pipeline.calibrate">仿真标定</span><i></i>
+                <span data-i18n="projects.pipeline.learn">残差学习</span>
+              </div>
+            </article>
+
+            <div class="project-grid">
+              <article class="project-card reveal">
+                <div class="project-meta"><span class="project-number">P / 02</span><span>RL</span></div>
+                <div class="project-symbol cube-symbol"><span></span></div>
+                <p class="project-kicker">DUAL-ARM · CONTACT-RICH</p>
+                <h3 data-i18n="projects.rl.title">双臂非抓取式箱体重定向</h3>
+                <p data-i18n="projects.rl.copy">在 Isaac Lab 中训练双臂协同倾倒、释放、稳定落桌与撤离策略，重点解决接触探索和域随机化。</p>
+                <div class="tag-row"><span>PPO</span><span>Curriculum</span><span>Domain Randomization</span></div>
+              </article>
+
+              <article class="project-card reveal">
+                <div class="project-meta"><span class="project-number">P / 03</span><span>CONTROL</span></div>
+                <div class="project-symbol wave-symbol"><i></i><i></i><i></i><i></i><i></i></div>
+                <p class="project-kicker">TELEOPERATION · FORCE FEEDBACK</p>
+                <h3 data-i18n="projects.teleop.title">双边力反馈遥操作</h3>
+                <p data-i18n="projects.teleop.copy">主从机械臂分别进行重力与谐波摩擦补偿，实现低启动力拖动、稳定跟随和接触力反馈。</p>
+                <div class="tag-row"><span>Dynamics</span><span>Friction FF</span><span>F/T Sensor</span><span>ESO</span></div>
+              </article>
+
+              <article class="project-card reveal">
+                <div class="project-meta"><span class="project-number">P / 04</span><span>PLANNING</span></div>
+                <div class="project-symbol path-symbol"><i></i><i></i><i></i><span></span></div>
+                <p class="project-kicker">MOTION PLANNING · SKILLS</p>
+                <h3 data-i18n="projects.planning.title">运动规划与操作技能</h3>
+                <p data-i18n="projects.planning.copy">基于 cuRobo 构建碰撞感知的 GPU 运动规划，并开发箱体重定向、按钮按压等可复用技能。</p>
+                <div class="tag-row"><span>cuRobo</span><span>Collision</span><span>Skill Design</span></div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section shell" id="stack">
+        <div class="section-heading reveal">
+          <div>
+            <span class="section-number">03 / CAPABILITIES</span>
+            <h2 data-i18n="stack.title">能力栈</h2>
+          </div>
+          <p data-i18n="stack.lead">将机器人问题拆解为可观测、可验证、可迭代的工程闭环。</p>
+        </div>
+
+        <div class="capability-grid reveal">
+          <article>
+            <span>01</span>
+            <h3 data-i18n="stack.learning">仿真与学习</h3>
+            <p>Isaac Sim · Isaac Lab · RSL-RL · PPO · PyTorch</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3 data-i18n="stack.control">机器人控制</h3>
+            <p>C++ · Python · ROS / ROS 2 · CAN FD · UDP · F/T Sensing</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3 data-i18n="stack.dynamics">动力学与优化</h3>
+            <p>System Identification · WLS · Regularization · Friction · Trajectory Optimization</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3 data-i18n="stack.planning">规划与部署</h3>
+            <p>cuRobo · URDF / USD · Collision Checking · Sim-to-Real</p>
+          </article>
+        </div>
+
+        <div class="focus-panel reveal">
+          <div>
+            <span class="section-number">NOW / 2026</span>
+            <h3 data-i18n="focus.title">当前聚焦</h3>
+          </div>
+          <div class="focus-items">
+            <p><span>01</span><b data-i18n="focus.one">接触丰富型双臂强化学习</b></p>
+            <p><span>02</span><b data-i18n="focus.two">部分可观测条件下的实机部署</b></p>
+            <p><span>03</span><b data-i18n="focus.three">执行器模型与 Real-to-Sim 对齐</b></p>
+            <p><span>04</span><b data-i18n="focus.four">控制、规划与学习的融合</b></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="shell contact-inner reveal">
+          <div>
+            <span class="section-number">04 / CONNECT</span>
+            <h2 data-i18n-html="contact.title">一起构建真正<br /><span>可靠的机器人系统</span></h2>
+          </div>
+          <div class="contact-copy">
+            <p data-i18n="contact.copy">关注机器人学习、机械臂控制、Real-to-Sim 与接触操作，也欢迎交流相关工程与研究问题。</p>
+            <a class="primary-button light-button" href="https://github.com/Mj-Erwin" target="_blank" rel="noreferrer">
+              <span data-i18n="contact.github">访问我的 GitHub</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12h14M13 6l6 6-6 6"></path></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <span>© <span id="year"></span> ERWIN / ROBOTICS</span>
+        <span data-i18n="footer.note">模型 · 控制 · 学习 · 部署</span>
+        <a href="#top">BACK TO TOP ↑</a>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
