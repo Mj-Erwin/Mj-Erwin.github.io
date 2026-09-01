@@ -145,7 +145,7 @@ themeButton.addEventListener("click", () => {
 });
 
 const preferredLanguage = localStorage.getItem("erwin-language") || "zh";
-const preferredTheme = localStorage.getItem("erwin-theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+const preferredTheme = localStorage.getItem("erwin-theme") || "light";
 
 setLanguage(preferredLanguage);
 setTheme(preferredTheme);
