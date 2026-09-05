@@ -1,383 +1,115 @@
 <!doctype html>
 <html lang="zh-CN" data-theme="light">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Erwin — Robotics Algorithm Engineer. Robot dynamics identification, actuator modeling, bilateral teleoperation and contact-rich reinforcement learning."
-    />
-    <meta name="theme-color" content="#f3f7f8" />
-    <title>Erwin · Robotics Algorithm Engineer</title>
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./styles.css?v=3" />
-  </head>
-  <body>
-    <div class="page-grid" aria-hidden="true"></div>
-
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="Erwin home">
-        <span class="brand-mark">E</span>
-        <span class="brand-copy">
-          <strong>ERWIN</strong>
-          <small>ROBOTICS / 01</small>
-        </span>
-      </a>
-
-      <nav class="main-nav" aria-label="Primary navigation">
-        <a href="#roadmap" data-i18n="nav.roadmap">技术主线</a>
-        <a href="#projects" data-i18n="nav.projects">项目</a>
-        <a href="#stack" data-i18n="nav.stack">能力栈</a>
-        <a href="#contact" data-i18n="nav.contact">联系</a>
-      </nav>
-
-      <div class="header-actions">
-        <button class="text-button" id="language-toggle" type="button" aria-label="Switch language">
-          EN
-        </button>
-        <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle color theme">
-          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="4"></circle>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
-          </svg>
-          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"></path>
-          </svg>
-        </button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Erwin · 机器人算法工程师。聚焦谐波减速器摩擦辨识、双边力反馈遥操作、残差执行器 Real-to-Sim 与双臂接触操作。" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Erwin · Robotics / Control & Learning</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./styles.css?v=navy-1" />
+</head>
+<body>
+  <a class="skip-link" href="#projects" data-i18n="skip">跳转至项目</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Erwin home"><span class="brand-mark">E.</span><span>ERWIN<span class="brand-sub">ROBOTICS ENGINEERING</span></span></a>
+    <nav aria-label="Main navigation">
+      <a href="#roadmap" data-i18n="nav.roadmap">技术主线</a>
+      <a href="#projects" data-i18n="nav.projects">研究与工程</a>
+      <a href="#stack" data-i18n="nav.stack">个人能力</a>
+      <a href="#contact" data-i18n="nav.contact">交流</a>
+    </nav>
+    <div class="header-actions">
+      <button id="language-toggle" type="button" aria-label="Switch to English">EN</button>
+      <button id="theme-toggle" type="button" aria-label="切换为深色模式" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.6 8.6 0 0 1 10 3.5 8.6 8.6 0 1 0 20.5 14Z" /></svg></button>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-art"><img src="./hero-anime.webp" width="1672" height="941" fetchpriority="high" alt="秋山澪、布鲁诺·布加拉提与钢链手指" data-i18n-alt="hero.art" /></div>
+      <div class="hero-copy shell">
+        <p class="eyebrow">CONTROL / DYNAMICS / ROBOT LEARNING</p>
+        <h1>Erwin<span data-i18n="hero.role">机器人算法工程师</span></h1>
+        <h2 data-i18n="hero.title">机械臂控制与机器人学习</h2>
+        <p class="hero-lead" data-i18n="hero.lead">我研究与实现机械臂的动力学辨识、双边力反馈控制和接触操作策略。工作从真实硬件中的摩擦、跟踪误差与观测限制出发，延伸到执行器建模和仿真策略训练。</p>
+        <div class="hero-directions">
+          <p><span>01</span><b data-i18n="hero.a">低阻力拖动与双边力反馈</b></p>
+          <p><span>02</span><b data-i18n="hero.b">动力学辨识与 Real-to-Sim</b></p>
+          <p><span>03</span><b data-i18n="hero.c">双臂接触丰富型操作</b></p>
+        </div>
+        <div class="hero-actions"><a class="button" href="#projects" data-i18n="hero.work">阅读项目案例</a><a class="text-link" href="https://github.com/Mj-Erwin" target="_blank" rel="noreferrer">GitHub ↗</a></div>
       </div>
-    </header>
+    </section>
+    <div class="scope-strip shell"><span>RESEARCH × ENGINEERING</span><p data-i18n="scope">以实机问题定义模型，以误差分析指导迭代。</p><span>7-DoF MANIPULATORS</span></div>
 
-    <main id="top">
-      <section class="hero shell">
-        <div class="hero-copy reveal">
-          <div class="eyebrow">
-            <span class="status-dot"></span>
-            <span data-i18n="hero.eyebrow">机器人算法工程师 · 北京</span>
-          </div>
-          <h1 data-i18n-html="hero.title">
-            机械臂动力学辨识<br />控制与<span>接触策略学习</span>
-          </h1>
-          <p class="hero-lead" data-i18n="hero.lead">
-            面向 7-DoF 机械臂，开展重力与谐波减速器摩擦辨识、残差执行器建模、双边力反馈遥操作及双臂接触丰富型强化学习，并以量化误差与实机闭环结果验证算法。
-          </p>
-          <div class="hero-actions">
-            <a class="primary-button" href="#projects">
-              <span data-i18n="hero.viewWork">查看核心项目</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12h14M13 6l6 6-6 6"></path></svg>
-            </a>
-            <a class="secondary-button" href="https://github.com/Mj-Erwin" target="_blank" rel="noreferrer">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7A5.4 5.4 0 0 0 19.3 4 5 5 0 0 0 19.2.5S18 0 15 1.8a13.4 13.4 0 0 0-7 0C5 .1 3.8.5 3.8.5A5 5 0 0 0 3.7 4a5.4 5.4 0 0 0-1.5 3.7c0 5.4 3.5 6.6 6.8 7A4.8 4.8 0 0 0 8 18v4M8 19c-3 .9-3-1.5-4-2"></path></svg>
-              GitHub
-            </a>
-          </div>
-        </div>
-
-        <div class="hero-system reveal" aria-label="Robotics system map">
-          <div class="system-header">
-            <span>ROBOTICS PIPELINE</span>
-            <span class="system-live">CLOSED LOOP</span>
-          </div>
-          <div class="orbit-stage">
-            <div class="orbit orbit-outer"></div>
-            <div class="orbit orbit-inner"></div>
-            <div class="axis axis-x"></div>
-            <div class="axis axis-y"></div>
-            <div class="core-node">
-              <span>DYNAMICS</span>
-              <strong>∑</strong>
-              <small>MODEL · CONTROL</small>
-            </div>
-            <div class="satellite satellite-a"><i></i><span>IDENTIFY</span></div>
-            <div class="satellite satellite-b"><i></i><span>CALIBRATE</span></div>
-            <div class="satellite satellite-c"><i></i><span>OPTIMIZE</span></div>
-            <div class="satellite satellite-d"><i></i><span>VALIDATE</span></div>
-          </div>
-          <div class="system-legend">
-            <span><i class="legend-real"></i>System Identification</span>
-            <span><i class="legend-learn"></i>Policy Optimization</span>
-            <span><i class="legend-deploy"></i>Hardware Validation</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="metrics shell reveal" aria-label="Selected engineering metrics">
-        <article>
-          <span class="metric-index">01</span>
-          <strong>23.5<small>%</small></strong>
-          <p data-i18n="metrics.position">关节位置 RMSE 相对下降</p>
-        </article>
-        <article>
-          <span class="metric-index">02</span>
-          <strong>56.2<small>%</small></strong>
-          <p data-i18n="metrics.velocity">关节速度 RMSE 相对下降</p>
-        </article>
-        <article>
-          <span class="metric-index">03</span>
-          <strong>1024</strong>
-          <p data-i18n="metrics.envs">Isaac Lab 并行环境数</p>
-        </article>
-        <article>
-          <span class="metric-index">04</span>
-          <strong>200<small>Hz</small></strong>
-          <p data-i18n="metrics.control">补偿计算与控制指令频率</p>
-        </article>
-      </section>
-
-      <section class="section shell" id="roadmap">
-        <div class="section-heading reveal">
-          <div>
-            <span class="section-number">01 / ROADMAP</span>
-            <h2 data-i18n="roadmap.title">Real-to-Sim 建模与实机闭环验证</h2>
-          </div>
-          <p data-i18n="roadmap.lead">
-            以实机数据辨识物理参数和执行器残差，缩小仿真—实机状态转移差异，并在控制与接触操作任务中验证模型有效性。
-          </p>
-        </div>
-
-        <div class="roadmap-grid reveal">
-          <article class="roadmap-card">
-            <span class="roadmap-step">01</span>
-            <div class="roadmap-icon">R</div>
-            <h3 data-i18n="roadmap.real.title">实机动力学与摩擦辨识</h3>
-            <p data-i18n="roadmap.real.copy">基于激励轨迹、电流与关节状态数据，分离辨识刚体重力项及谐波减速器摩擦参数。</p>
-            <ul>
-              <li>Dynamics Identification</li>
-              <li>Friction Modeling</li>
-              <li>Excitation Design</li>
-            </ul>
-          </article>
-          <div class="roadmap-link"><span>Real-to-Sim</span><i></i></div>
-          <article class="roadmap-card accent-card">
-            <span class="roadmap-step">02</span>
-            <div class="roadmap-icon">S</div>
-            <h3 data-i18n="roadmap.sim.title">仿真动力学对齐</h3>
-            <p data-i18n="roadmap.sim.copy">将辨识参数与残差执行器模型嵌入 Isaac Lab，以多步关节状态误差评价模型一致性。</p>
-            <ul>
-              <li>Actuator Residual</li>
-              <li>Isaac Sim / Lab</li>
-              <li>System Alignment</li>
-            </ul>
-          </article>
-          <div class="roadmap-link"><span>Policy</span><i></i></div>
-          <article class="roadmap-card">
-            <span class="roadmap-step">03</span>
-            <div class="roadmap-icon">π</div>
-            <h3 data-i18n="roadmap.learn.title">接触丰富型策略优化</h3>
-            <p data-i18n="roadmap.learn.copy">针对双臂非抓取式箱体重定向，采用 PPO、阶段式课程与动力学参数随机化训练策略。</p>
-            <ul>
-              <li>Contact-rich RL</li>
-              <li>Dual-arm PPO</li>
-              <li>Curriculum</li>
-            </ul>
-          </article>
-          <div class="roadmap-link"><span>Sim-to-Real</span><i></i></div>
-          <article class="roadmap-card">
-            <span class="roadmap-step">04</span>
-            <div class="roadmap-icon">D</div>
-            <h3 data-i18n="roadmap.deploy.title">部分可观测实机部署</h3>
-            <p data-i18n="roadmap.deploy.copy">针对状态不可直接测量、传感噪声与模型偏差，设计可部署观测空间和闭环安全约束。</p>
-            <ul>
-              <li>Partial Observation</li>
-              <li>Robust Deployment</li>
-              <li>Closed-loop Control</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="section projects-section" id="projects">
-        <div class="shell">
-          <div class="section-heading reveal">
-            <div>
-              <span class="section-number">02 / SELECTED WORK</span>
-              <h2 data-i18n="projects.title">核心项目</h2>
-            </div>
-            <p data-i18n="projects.lead">按照问题定义、算法方法和量化结果组织项目，而不是简单罗列工具栈。</p>
-          </div>
-
-          <div class="project-list">
-            <article class="project-card featured-project reveal">
-              <div class="project-meta">
-                <span class="project-number">P / 01</span>
-                <span class="project-state"><i></i>ACTIVE</span>
-              </div>
-              <div class="project-content">
-                <div>
-                  <p class="project-kicker">REAL-TO-SIM · ACTUATOR MODEL</p>
-                  <h3 data-i18n="projects.actuator.title">7-DoF 机械臂动力学辨识与残差执行器模型</h3>
-                  <p data-i18n="projects.actuator.copy">
-                    设计低速重力与多速度匀速激励，分离辨识重力和谐波减速器摩擦参数；在 Isaac Lab 中以多步状态误差优化残差模型。
-                  </p>
-                  <div class="tag-row">
-                    <span>System ID</span><span>WLS</span><span>Friction</span><span>Isaac Lab</span><span>PPO</span>
-                  </div>
-                </div>
-                <div class="project-result">
-                  <span data-i18n="projects.result">代表性结果</span>
-                  <div class="result-line"><strong>1.5531°</strong><i></i><strong>1.1886°</strong></div>
-                  <small>Joint-position RMSE · −23.5%</small>
-                </div>
-              </div>
-              <div class="pipeline" aria-label="Real-to-sim pipeline">
-                <span data-i18n="projects.pipeline.collect">实机采集</span><i></i>
-                <span data-i18n="projects.pipeline.identify">参数辨识</span><i></i>
-                <span data-i18n="projects.pipeline.calibrate">仿真标定</span><i></i>
-                <span data-i18n="projects.pipeline.learn">残差学习</span>
-              </div>
-            </article>
-
-            <div class="project-grid">
-              <article class="project-card reveal">
-                <div class="project-meta"><span class="project-number">P / 02</span><span>RL</span></div>
-                <div class="project-symbol cube-symbol"><span></span></div>
-                <p class="project-kicker">DUAL-ARM · CONTACT-RICH</p>
-                <h3 data-i18n="projects.rl.title">双臂非抓取式箱体翻转与稳定释放</h3>
-                <p data-i18n="projects.rl.copy">在 Isaac Lab 中建模推顶、支撑、几何释放与撤离阶段；使用 PPO、阶段式课程、接触约束和域随机化优化翻转成功率与落桌稳定性。</p>
-                <div class="tag-row"><span>PPO</span><span>Curriculum</span><span>Domain Randomization</span></div>
-              </article>
-
-              <article class="project-card reveal">
-                <div class="project-meta"><span class="project-number">P / 03</span><span>CONTROL</span></div>
-                <div class="project-symbol wave-symbol"><i></i><i></i><i></i><i></i><i></i></div>
-                <p class="project-kicker">TELEOPERATION · FORCE FEEDBACK</p>
-                <h3 data-i18n="projects.teleop.title">基于重力/摩擦前馈的双边力反馈遥操作</h3>
-                <p data-i18n="projects.teleop.copy">主从 7-DoF 机械臂分别进行重力与谐波减速器摩擦补偿，从臂采用 PD 与扰动观测残差校正；以 200 Hz 执行补偿与控制指令。</p>
-                <div class="tag-row"><span>Dynamics</span><span>Friction FF</span><span>F/T Sensor</span><span>ESO</span></div>
-              </article>
-
-              <article class="project-card reveal">
-                <div class="project-meta"><span class="project-number">P / 04</span><span>PLANNING</span></div>
-                <div class="project-symbol path-symbol"><i></i><i></i><i></i><span></span></div>
-                <p class="project-kicker">MOTION PLANNING · SKILLS</p>
-                <h3 data-i18n="projects.planning.title">GPU 加速碰撞约束运动规划与接触技能</h3>
-                <p data-i18n="projects.planning.copy">使用 cuRobo 完成 IK 可达性筛选、图搜索初始化与轨迹优化，并构建基于末端 F/T 触发的按钮按压闭环技能。</p>
-                <div class="tag-row"><span>cuRobo</span><span>Collision</span><span>Skill Design</span></div>
-              </article>
-            </div>
-
-            <div class="demo-showcase reveal">
-              <div class="demo-heading">
-                <span class="section-number">ENGINEERING DEMOS / 02</span>
-                <p data-i18n="demos.lead">直接展示规划结果与碰撞几何验证，视频默认仅加载元数据，点击后播放。</p>
-              </div>
-
-              <div class="demo-grid">
-                <article class="demo-card">
-                  <div class="demo-media">
-                    <video
-                      controls
-                      playsinline
-                      preload="metadata"
-                      poster="./assets/dual-arm-motion-planning-poster.webp"
-                      aria-label="双臂协同运动规划演示"
-                    >
-                      <source src="./assets/dual-arm-motion-planning.mp4" type="video/mp4" />
-                    </video>
-                    <span class="demo-badge">14-DoF · cuRobo</span>
-                  </div>
-                  <div class="demo-body">
-                    <p class="project-kicker">MOTION GENERATION · 00:28</p>
-                    <h3 data-i18n="demos.planning.title">双臂协同运动规划</h3>
-                    <p data-i18n="demos.planning.copy">在 14 维联合空间内同步规划双臂轨迹，验证双目标约束、IK 可达性与碰撞约束下的协同运动生成。</p>
-                  </div>
-                </article>
-
-                <article class="demo-card">
-                  <div class="demo-media">
-                    <video
-                      controls
-                      playsinline
-                      preload="metadata"
-                      poster="./assets/dual-arm-collision-detection-poster.webp"
-                      aria-label="双臂碰撞检测演示"
-                    >
-                      <source src="./assets/dual-arm-collision-detection.mp4" type="video/mp4" />
-                    </video>
-                    <span class="demo-badge">SELF-COLLISION · GEOMETRY</span>
-                  </div>
-                  <div class="demo-body">
-                    <p class="project-kicker">COLLISION CHECKING · 00:33</p>
-                    <h3 data-i18n="demos.collision.title">双臂自碰撞检测</h3>
-                    <p data-i18n="demos.collision.copy">可视化并验证双臂连杆间的碰撞几何与距离约束，为轨迹有效性判定和碰撞约束规划提供基础。</p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section shell" id="stack">
-        <div class="section-heading reveal">
-          <div>
-            <span class="section-number">03 / CAPABILITIES</span>
-            <h2 data-i18n="stack.title">能力栈</h2>
-          </div>
-          <p data-i18n="stack.lead">覆盖模型辨识、实时控制、策略优化、运动规划和硬件验证。</p>
-        </div>
-
-        <div class="capability-grid reveal">
-          <article>
-            <span>01</span>
-            <h3 data-i18n="stack.learning">仿真与策略优化</h3>
-            <p>Isaac Sim · Isaac Lab · RSL-RL · PPO · PyTorch</p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3 data-i18n="stack.control">机械臂控制与实时通信</h3>
-            <p>C++ · Python · ROS / ROS 2 · CAN FD · UDP · F/T Sensing</p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3 data-i18n="stack.dynamics">动力学辨识与数值优化</h3>
-            <p>System Identification · WLS · Regularization · Friction · Trajectory Optimization</p>
-          </article>
-          <article>
-            <span>04</span>
-            <h3 data-i18n="stack.planning">运动规划与实机部署</h3>
-            <p>cuRobo · URDF / USD · Collision Checking · Sim-to-Real</p>
-          </article>
-        </div>
-
-        <div class="focus-panel reveal">
-          <div>
-            <span class="section-number">NOW / 2026</span>
-            <h3 data-i18n="focus.title">当前聚焦</h3>
-          </div>
-          <div class="focus-items">
-            <p><span>01</span><b data-i18n="focus.one">双臂接触丰富型非抓取操作</b></p>
-            <p><span>02</span><b data-i18n="focus.two">部分可观测条件下的策略部署</b></p>
-            <p><span>03</span><b data-i18n="focus.three">残差执行器模型与状态转移对齐</b></p>
-            <p><span>04</span><b data-i18n="focus.four">控制、规划与学习策略的混合架构</b></p>
-          </div>
-        </div>
-      </section>
-
-      <section class="contact-section" id="contact">
-        <div class="shell contact-inner reveal">
-          <div>
-            <span class="section-number">04 / CONNECT</span>
-            <h2 data-i18n-html="contact.title">机器人算法与<br /><span>实机系统交流</span></h2>
-          </div>
-          <div class="contact-copy">
-            <p data-i18n="contact.copy">关注机械臂动力学、接触丰富型强化学习、双边遥操作与 Real-to-Sim。欢迎讨论可复现实验和实机问题——毕竟仿真通过，只算完成了一半。</p>
-            <a class="primary-button light-button" href="https://github.com/Mj-Erwin" target="_blank" rel="noreferrer">
-              <span data-i18n="contact.github">访问我的 GitHub</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12h14M13 6l6 6-6 6"></path></svg>
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="shell">
-        <span>© <span id="year"></span> ERWIN / ROBOTICS</span>
-        <span data-i18n="footer.note">辨识 · 控制 · 优化 · 验证</span>
-        <a href="#top">BACK TO TOP ↑</a>
+    <section class="section shell" id="roadmap">
+      <div class="section-heading"><div><p class="eyebrow">01 / RESEARCH DIRECTIONS</p><h2 data-i18n="roadmap.title">从同一组动力学问题出发</h2></div><p data-i18n="roadmap.lead">重力与摩擦辨识是两条主线的共同基础：一条服务人机交互手感，另一条服务仿真动力学与接触操作学习。</p></div>
+      <div class="foundation"><span class="mono">SHARED FOUNDATION</span><h3 data-i18n="roadmap.base">重力与谐波减速器摩擦辨识</h3><p data-i18n="roadmap.basecopy">激励轨迹设计 · 正反向数据分离 · 加权回归与正则化 · 电流前馈验证</p></div>
+      <div class="track-grid">
+        <article class="track"><div class="track-label"><span>A / CONTROL</span><span data-i18n="roadmap.astate">实机闭环已验证</span></div><h3 data-i18n="roadmap.a">双边力反馈遥操作</h3><p data-i18n="roadmap.acopy">将辨识结果用于主从双臂前馈补偿，在低拖动阻力、关节同步与接触反馈之间调整控制参数。</p><p class="track-path" data-i18n="roadmap.apath">参数辨识 → 电流前馈 → 双边控制 → 实机调试</p><a class="text-link" href="#teleoperation" data-i18n="roadmap.alink">查看控制案例 ↗</a></article>
+        <article class="track"><div class="track-label"><span>B / ROBOT LEARNING</span><span data-i18n="roadmap.bstate">建模与仿真任务研究</span></div><h3 data-i18n="roadmap.b">Real-to-Sim 与接触操作</h3><p data-i18n="roadmap.bcopy">以物理参数模型为基础学习执行器残差，降低状态转移偏差；进一步面向双臂非抓取式操作开展策略研究。</p><p class="track-path" data-i18n="roadmap.bpath">动力学先验 → 残差建模 → 接触任务 → 迁移验证</p><a class="text-link" href="#real-to-sim" data-i18n="roadmap.blink">查看建模与学习案例 ↗</a></article>
       </div>
-    </footer>
+      <p class="section-note" data-i18n="roadmap.note">上图表示方法联系与研究路线；残差模型在接触策略中的集成收益及实机迁移，仍需任务级实验验证。</p>
+    </section>
 
-    <script src="./script.js?v=4"></script>
-  </body>
+    <section class="section case-section" id="projects"><div class="shell">
+      <div class="section-heading"><div><p class="eyebrow">02 / SELECTED RESEARCH & ENGINEERING</p><h2 data-i18n="projects.title">重点解决的问题</h2></div><p data-i18n="projects.lead">从数据采集、模型辨识与控制实现，到仿真训练和误差诊断，我的工作覆盖算法与系统之间的关键环节。</p></div>
+      <article class="case" id="teleoperation">
+        <header class="case-header"><span class="case-index">01</span><div><p class="eyebrow">BILATERAL TELEOPERATION</p><h3 data-i18n="teleop.title">谐波驱动机械臂的低阻力拖动与双边力反馈</h3></div><span class="state" data-i18n="teleop.state">实机闭环</span></header>
+        <div class="case-layout"><div class="case-main">
+          <h4 data-i18n="label.problem">问题定义</h4><p data-i18n="teleop.problem">谐波减速器的静摩擦与换向迟滞造成启动力大、低速卡顿；补偿不足影响拖动手感，补偿过量又可能引起漂移或振荡。主从同步与接触阻力反馈还会放大这些非理想因素。</p>
+          <h4 data-i18n="label.contribution">我的实现与关键方法</h4>
+          <ol class="methods"><li data-i18n="teleop.m1">分别辨识主臂与从臂的重力和摩擦特性，通过电流前馈抵消本体负载与低速阻力。</li><li data-i18n="teleop.m2">实现双边 PD 同步与阻尼调节，在从臂引入单侧扰动观测残差补偿，处理跟踪误差。</li><li data-i18n="teleop.m3">围绕启停、换向和接触工况调试速度死区、滤波与补偿限幅，分析静摩擦、时序和参数之间的耦合。</li></ol>
+          <div class="tags"><span>Gravity / Friction Feedforward</span><span>PD + ESO</span><span>Current Control</span></div>
+        </div><aside class="evidence"><p class="eyebrow" data-i18n="label.evidence">验证与边界</p><div class="result-number">200 <small>Hz</small></div><p class="result-caption" data-i18n="teleop.rate">补偿计算与指令下发频率，非力反馈带宽。</p><h4 data-i18n="teleop.resulttitle">已验证的实机行为</h4><p data-i18n="teleop.result">重力平衡、低阻力拖动、主从关节同步及接触阻力反馈。</p><p class="boundary" data-i18n="teleop.boundary">仅 PD 的静止跟踪误差约 1°–2°；低速静摩擦与换向手感仍需优化。</p></aside></div>
+        <div class="case-footer"><span data-i18n="label.ability">体现能力</span><p data-i18n="teleop.ability">非理想动力学分析 · 补偿与反馈协同设计 · 实机闭环调试</p></div>
+      </article>
+
+      <article class="case" id="real-to-sim">
+        <header class="case-header"><span class="case-index">02</span><div><p class="eyebrow">SYSTEM IDENTIFICATION / REAL-TO-SIM</p><h3 data-i18n="r2s.title">物理参数辨识与学习型执行器残差建模</h3></div><span class="state" data-i18n="r2s.state">轨迹回放评估</span></header>
+        <div class="case-layout"><div class="case-main">
+          <h4 data-i18n="label.problem">问题定义</h4><p data-i18n="r2s.problem">仅依赖 URDF 参数与理想 PD，难以复现真实执行器的摩擦和动态响应；单步拟合误差小，也不代表多步闭环轨迹一致。</p>
+          <h4 data-i18n="label.contribution">我的实现与关键方法</h4>
+          <ol class="methods"><li data-i18n="r2s.m1">设计低速双向与多速度匀速采集，分离重力项和正反向摩擦；以 WLS、正则化和静态锚点缓解参数耦合与欠激励。</li><li data-i18n="r2s.m2">构建“显式 PD 基线 + 历史状态驱动神经残差力矩”，将物理先验与学习模型接入 Isaac Lab 执行器接口。</li><li data-i18n="r2s.m3">采用 PPO 多步 rollout 优化关节状态误差，比较关节位置与速度的轨迹一致性，诊断闭环误差累积。</li></ol>
+          <div class="tags"><span>WLS / Regularization</span><span>Residual Torque</span><span>Multi-step Rollout</span></div>
+        </div><aside class="evidence"><p class="eyebrow" data-i18n="label.evidence">验证与边界</p><h4>Joint-position RMSE</h4><div class="result-pair"><span>1.5531°</span><b aria-hidden="true">→</b><strong>1.1886°</strong></div><p class="result-caption" data-i18n="r2s.position">关节位置 RMSE 相对下降约 23.5%。</p><h4>Joint-velocity RMSE</h4><div class="result-pair"><span>0.0673</span><b aria-hidden="true">→</b><strong>0.0295</strong></div><p class="result-caption">rad/s</p><p class="boundary" data-i18n="r2s.boundary">结果来自已有测试轨迹的仿真回放对齐，衡量模型一致性，不等同于策略的实机成功率。</p></aside></div>
+        <div class="case-footer"><span data-i18n="label.ability">体现能力</span><p data-i18n="r2s.ability">可辨识性与数据设计 · 物理模型与神经模型结合 · 多步动态误差评估</p></div>
+      </article>
+
+      <article class="case" id="contact-rich">
+        <header class="case-header"><span class="case-index">03</span><div><p class="eyebrow">CONTACT-RICH / NON-PREHENSILE MANIPULATION</p><h3 data-i18n="rl.title">双臂箱体重定向中的接触协同与稳定释放</h3></div><span class="state" data-i18n="rl.state">仿真策略研究</span></header>
+        <div class="case-layout"><div class="case-main">
+          <h4 data-i18n="label.problem">问题定义</h4><p data-i18n="rl.problem">箱体翻到目标角度并不等于任务完成。策略可能依赖桌面摩擦绕过双臂支撑，或在撤离时失稳；接触切换、落桌与释放需要分别建模和验收。</p>
+          <h4 data-i18n="label.contribution">我的实现与关键方法</h4>
+          <ol class="methods"><li data-i18n="rl.m1">在 Isaac Lab 构建双臂推顶、支撑与翻转任务，以 PPO 和 30°→50°→90° 阶段式课程组织策略训练。</li><li data-i18n="rl.m2">设计接触与几何约束、撤离门控和终止条件，针对“角度达标但仍有残余接触”等失败模式调整奖励。</li><li data-i18n="rl.m3">分别评估角度误差、落桌稳定性、末端间隙与接触释放；继续验证摩擦、尺寸和初始位姿随机化下的鲁棒性。</li></ol>
+          <div class="tags"><span>Isaac Lab / RSL-RL</span><span>PPO / Curriculum</span><span>Contact Constraints</span></div>
+        </div><aside class="evidence"><p class="eyebrow" data-i18n="label.evidence">验证与边界</p><div class="result-number">1024</div><p class="result-caption" data-i18n="rl.envs">训练配置：Isaac Lab 并行仿真环境数。</p><h4 data-i18n="rl.resulttitle">任务验收分解</h4><ul class="criteria"><li data-i18n="rl.check1">目标姿态与稳定落桌</li><li data-i18n="rl.check2">接触释放与双臂撤离</li><li data-i18n="rl.check3">随机化工况与失败分布</li></ul><p class="boundary" data-i18n="rl.boundary">固定初始条件下的结果不代表随机工况成功率。域随机化与观测缺失仍在研究，实机迁移尚待验证。</p></aside></div>
+        <div class="case-footer"><span data-i18n="label.ability">体现能力</span><p data-i18n="rl.ability">接触任务抽象 · 课程与奖励设计 · 策略失效模式诊断</p></div>
+      </article>
+
+      <div class="demo-showcase" id="demos">
+        <div class="subheading"><div><p class="eyebrow">COMPLEMENTARY WORK / SIMULATION DEMOS</p><h3 data-i18n="demos.title">规划与碰撞检测</h3></div><p data-i18n="demos.lead">双臂系统的轨迹生成与几何验证。</p></div>
+        <div class="demo-grid">
+          <article class="demo-card"><video controls playsinline preload="none" poster="./assets/dual-arm-motion-planning-poster.webp" width="960" height="520" aria-labelledby="planning-title" aria-describedby="planning-copy"><source src="./assets/dual-arm-motion-planning.mp4" type="video/mp4" /><a href="./assets/dual-arm-motion-planning.mp4" data-i18n="demos.fallback">打开视频</a></video><div class="demo-body"><p class="eyebrow">01 / MOTION PLANNING · 00:28</p><h4 id="planning-title" data-i18n="demos.planning.title">14-DoF 双臂联合运动规划</h4><p id="planning-copy" data-i18n="demos.planning.copy">基于 cuRobo，在联合关节空间内处理双末端目标与碰撞约束，展示双臂协同轨迹生成。</p><a class="text-link" href="./assets/dual-arm-motion-planning.mp4" target="_blank" rel="noreferrer" data-i18n="demos.open">独立播放 ↗</a></div></article>
+          <article class="demo-card"><video controls playsinline preload="none" poster="./assets/dual-arm-collision-detection-poster.webp" width="960" height="520" aria-labelledby="collision-title" aria-describedby="collision-copy"><source src="./assets/dual-arm-collision-detection.mp4" type="video/mp4" /><a href="./assets/dual-arm-collision-detection.mp4" data-i18n="demos.fallback">打开视频</a></video><div class="demo-body"><p class="eyebrow">02 / COLLISION CHECKING · 00:33</p><h4 id="collision-title" data-i18n="demos.collision.title">双臂自碰撞检测</h4><p id="collision-copy" data-i18n="demos.collision.copy">展示双臂运动中的碰撞几何检查与可视化，用于排查连杆干涉和模型配置问题。</p><a class="text-link" href="./assets/dual-arm-collision-detection.mp4" target="_blank" rel="noreferrer" data-i18n="demos.open">独立播放 ↗</a></div></article>
+        </div>
+        <div class="skill-note"><span class="mono">CONTACT-TRIGGERED SKILL</span><p data-i18n="demos.button">按钮按压：将视觉横向对齐、分步深度探索与末端 F/T 接触触发组织为闭环状态机。</p></div>
+      </div>
+    </div></section>
+
+    <section class="section shell" id="stack">
+      <div class="section-heading"><div><p class="eyebrow">03 / TECHNICAL CAPABILITIES</p><h2 data-i18n="stack.title">模型、算法与硬件之间</h2></div><p data-i18n="stack.lead">把现象转化为可辨识的模型、可执行的控制器和可检验的任务条件。</p></div>
+      <div class="capability-grid">
+        <article><span class="mono">01 / MODEL</span><h3 data-i18n="stack.model">从数据判断模型问题</h3><p data-i18n="stack.modelcopy">通过双向采样、静态锚点与误差分解，区分重力偏差、摩擦非对称和参数耦合。</p><p class="toolset">Python · System ID · WLS · Regularization</p><a class="text-link" href="#real-to-sim" data-i18n="stack.modelref">对应案例：动力学辨识 ↗</a></article>
+        <article><span class="mono">02 / CONTROL</span><h3 data-i18n="stack.control">把控制律接入实机闭环</h3><p data-i18n="stack.controlcopy">围绕电流模式、通信时序与传感噪声，联合调试前馈补偿、反馈增益和阻尼。</p><p class="toolset">C++ / Python · PD · ESO · UDP / CAN FD</p><a class="text-link" href="#teleoperation" data-i18n="stack.controlref">对应案例：双边遥操作 ↗</a></article>
+        <article><span class="mono">03 / LEARNING</span><h3 data-i18n="stack.learning">从策略行为定位训练缺陷</h3><p data-i18n="stack.learningcopy">把支撑失效、提前撤离和残余接触转化为课程、奖励与验收条件的修改。</p><p class="toolset">Isaac Lab · PyTorch · RSL-RL · PPO</p><a class="text-link" href="#contact-rich" data-i18n="stack.learningref">对应案例：接触丰富型操作 ↗</a></article>
+      </div>
+      <div class="focus-panel"><div><p class="eyebrow">OPEN QUESTIONS</p><h3 data-i18n="focus.title">继续验证的问题</h3></div><ol><li data-i18n="focus.one">静摩擦补偿：进一步改善低速启停与换向手感。</li><li data-i18n="focus.two">域随机化：区分训练覆盖范围与真正的策略泛化。</li><li data-i18n="focus.three">部分可观测部署：评估物体速度、角速度及持续姿态测量缺失的影响。</li></ol></div>
+    </section>
+
+    <section class="contact-section" id="contact"><div class="shell contact-inner"><div><p class="eyebrow">04 / CONTACT</p><h2 data-i18n="contact.title">交流模型，也交流失败案例。</h2></div><div><p data-i18n="contact.copy">欢迎交流机械臂控制、动力学辨识与机器人学习相关的研究和工程问题。</p><a class="button button-white" href="https://github.com/Mj-Erwin" target="_blank" rel="noreferrer">GitHub / Mj-Erwin ↗</a><p class="aside-note" data-i18n="contact.note">摩擦不读论文，但会认真检查我们的模型。</p></div></div></section>
+  </main>
+  <footer class="site-footer shell"><span>© <span id="year">2026</span> ERWIN</span><span>CONTROL · DYNAMICS · LEARNING</span><a href="#top" data-i18n="footer.top">回到顶部 ↑</a></footer>
+  <script src="./script.js?v=navy-1"></script>
+</body>
 </html>

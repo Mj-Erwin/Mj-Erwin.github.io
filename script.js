@@ -1,176 +1,147 @@
-const translations = {
-  zh: {
-    "nav.roadmap": "技术主线",
-    "nav.projects": "项目",
-    "nav.stack": "能力栈",
-    "nav.contact": "联系",
-    "hero.eyebrow": "机器人算法工程师 · 北京",
-    "hero.title": "机械臂动力学辨识<br />控制与<span>接触策略学习</span>",
-    "hero.lead": "面向 7-DoF 机械臂，开展重力与谐波减速器摩擦辨识、残差执行器建模、双边力反馈遥操作及双臂接触丰富型强化学习，并以量化误差与实机闭环结果验证算法。",
-    "hero.viewWork": "查看核心项目",
-    "metrics.position": "关节位置 RMSE 相对下降",
-    "metrics.velocity": "关节速度 RMSE 相对下降",
-    "metrics.envs": "Isaac Lab 并行环境数",
-    "metrics.control": "补偿计算与控制指令频率",
-    "roadmap.title": "Real-to-Sim 建模与实机闭环验证",
-    "roadmap.lead": "以实机数据辨识物理参数和执行器残差，缩小仿真—实机状态转移差异，并在控制与接触操作任务中验证模型有效性。",
-    "roadmap.real.title": "实机动力学与摩擦辨识",
-    "roadmap.real.copy": "基于激励轨迹、电流与关节状态数据，分离辨识刚体重力项及谐波减速器摩擦参数。",
-    "roadmap.sim.title": "仿真动力学对齐",
-    "roadmap.sim.copy": "将辨识参数与残差执行器模型嵌入 Isaac Lab，以多步关节状态误差评价模型一致性。",
-    "roadmap.learn.title": "接触丰富型策略优化",
-    "roadmap.learn.copy": "针对双臂非抓取式箱体重定向，采用 PPO、阶段式课程与动力学参数随机化训练策略。",
-    "roadmap.deploy.title": "部分可观测实机部署",
-    "roadmap.deploy.copy": "针对状态不可直接测量、传感噪声与模型偏差，设计可部署观测空间和闭环安全约束。",
-    "projects.title": "核心项目",
-    "projects.lead": "按照问题定义、算法方法和量化结果组织项目，而不是简单罗列工具栈。",
-    "projects.actuator.title": "7-DoF 机械臂动力学辨识与残差执行器模型",
-    "projects.actuator.copy": "设计低速重力与多速度匀速激励，分离辨识重力和谐波减速器摩擦参数；在 Isaac Lab 中以多步状态误差优化残差模型。",
-    "projects.result": "代表性结果",
-    "projects.pipeline.collect": "实机采集",
-    "projects.pipeline.identify": "参数辨识",
-    "projects.pipeline.calibrate": "仿真标定",
-    "projects.pipeline.learn": "残差学习",
-    "projects.rl.title": "双臂非抓取式箱体翻转与稳定释放",
-    "projects.rl.copy": "在 Isaac Lab 中建模推顶、支撑、几何释放与撤离阶段；使用 PPO、阶段式课程、接触约束和域随机化优化翻转成功率与落桌稳定性。",
-    "projects.teleop.title": "基于重力/摩擦前馈的双边力反馈遥操作",
-    "projects.teleop.copy": "主从 7-DoF 机械臂分别进行重力与谐波减速器摩擦补偿，从臂采用 PD 与扰动观测残差校正；以 200 Hz 执行补偿与控制指令。",
-    "projects.planning.title": "GPU 加速碰撞约束运动规划与接触技能",
-    "projects.planning.copy": "使用 cuRobo 完成 IK 可达性筛选、图搜索初始化与轨迹优化，并构建基于末端 F/T 触发的按钮按压闭环技能。",
-    "demos.lead": "直接展示规划结果与碰撞几何验证，视频默认仅加载元数据，点击后播放。",
-    "demos.planning.title": "双臂协同运动规划",
-    "demos.planning.copy": "在 14 维联合空间内同步规划双臂轨迹，验证双目标约束、IK 可达性与碰撞约束下的协同运动生成。",
-    "demos.collision.title": "双臂自碰撞检测",
-    "demos.collision.copy": "可视化并验证双臂连杆间的碰撞几何与距离约束，为轨迹有效性判定和碰撞约束规划提供基础。",
-    "stack.title": "能力栈",
-    "stack.lead": "覆盖模型辨识、实时控制、策略优化、运动规划和硬件验证。",
-    "stack.learning": "仿真与策略优化",
-    "stack.control": "机械臂控制与实时通信",
-    "stack.dynamics": "动力学辨识与数值优化",
-    "stack.planning": "运动规划与实机部署",
-    "focus.title": "当前聚焦",
-    "focus.one": "双臂接触丰富型非抓取操作",
-    "focus.two": "部分可观测条件下的策略部署",
-    "focus.three": "残差执行器模型与状态转移对齐",
-    "focus.four": "控制、规划与学习策略的混合架构",
-    "contact.title": "机器人算法与<br /><span>实机系统交流</span>",
-    "contact.copy": "关注机械臂动力学、接触丰富型强化学习、双边遥操作与 Real-to-Sim。欢迎讨论可复现实验和实机问题——毕竟仿真通过，只算完成了一半。",
-    "contact.github": "访问我的 GitHub",
-    "footer.note": "辨识 · 控制 · 优化 · 验证"
-  },
-  en: {
-    "nav.roadmap": "Roadmap",
-    "nav.projects": "Projects",
-    "nav.stack": "Capabilities",
-    "nav.contact": "Connect",
-    "hero.eyebrow": "Robotics Algorithm Engineer · Beijing",
-    "hero.title": "Robot dynamics,<br />control & <span>contact-rich learning</span>",
-    "hero.lead": "I develop and validate algorithms for 7-DoF manipulators, spanning gravity and harmonic-drive friction identification, residual actuator modeling, bilateral force-feedback teleoperation, and dual-arm contact-rich reinforcement learning.",
-    "hero.viewWork": "Explore selected work",
-    "metrics.position": "Relative reduction in joint-position RMSE",
-    "metrics.velocity": "Relative reduction in joint-velocity RMSE",
-    "metrics.envs": "Parallel Isaac Lab environments",
-    "metrics.control": "Compensation and command frequency",
-    "roadmap.title": "Real-to-Sim modeling and closed-loop hardware validation",
-    "roadmap.lead": "Identify physical parameters and actuator residuals from hardware data, reduce simulation-to-hardware transition mismatch, and validate the resulting models in control and contact-rich manipulation tasks.",
-    "roadmap.real.title": "Dynamics and friction identification",
-    "roadmap.real.copy": "Estimate rigid-body gravity terms and harmonic-drive friction parameters from excitation trajectories, motor current, and joint-state measurements.",
-    "roadmap.sim.title": "Simulation dynamics alignment",
-    "roadmap.sim.copy": "Embed identified parameters and a residual actuator model in Isaac Lab, using multi-step joint-state error as the consistency metric.",
-    "roadmap.learn.title": "Contact-rich policy optimization",
-    "roadmap.learn.copy": "Train dual-arm non-prehensile box-reorientation policies with PPO, staged curricula, and randomized dynamics parameters.",
-    "roadmap.deploy.title": "Deployment under partial observability",
-    "roadmap.deploy.copy": "Design deployable observations and closed-loop safety constraints for unmeasured states, sensor noise, and model mismatch.",
-    "projects.title": "Selected projects",
-    "projects.lead": "Projects are organized by problem definition, algorithmic method, and quantitative result—not by a list of tools.",
-    "projects.actuator.title": "7-DoF dynamics identification & residual actuator modeling",
-    "projects.actuator.copy": "Design low-speed gravity and multi-velocity constant-speed excitation, separate gravity and harmonic-drive friction terms, and optimize a residual actuator model against multi-step state error in Isaac Lab.",
-    "projects.result": "Representative result",
-    "projects.pipeline.collect": "Real data",
-    "projects.pipeline.identify": "Identify",
-    "projects.pipeline.calibrate": "Calibrate",
-    "projects.pipeline.learn": "Learn residual",
-    "projects.rl.title": "Dual-arm non-prehensile box tipping and stable release",
-    "projects.rl.copy": "Model coordinated pushing, support, geometric release, and arm withdrawal in Isaac Lab; optimize tipping success and landing stability with PPO, staged curricula, contact constraints, and domain randomization.",
-    "projects.teleop.title": "Bilateral teleoperation with gravity/friction feedforward",
-    "projects.teleop.copy": "Apply gravity and harmonic-drive friction compensation to both 7-DoF arms, with PD tracking and disturbance-observer residual correction on the slave at a 200 Hz command rate.",
-    "projects.planning.title": "GPU-accelerated collision-constrained planning and contact skills",
-    "projects.planning.copy": "Use cuRobo for IK feasibility screening, graph-search initialization, and trajectory optimization, plus end-effector F/T-triggered closed-loop button pressing.",
-    "demos.lead": "Direct demonstrations of planned motion and collision-geometry validation. Videos load metadata only until playback starts.",
-    "demos.planning.title": "Coordinated dual-arm motion planning",
-    "demos.planning.copy": "Plan both arms jointly in a 14-dimensional configuration space and evaluate coordinated motion generation under dual-target, IK-feasibility, and collision constraints.",
-    "demos.collision.title": "Dual-arm self-collision checking",
-    "demos.collision.copy": "Visualize and validate inter-link collision geometry and distance constraints for trajectory validity checks and collision-constrained planning.",
-    "stack.title": "Capabilities",
-    "stack.lead": "Coverage across system identification, real-time control, policy optimization, motion planning, and hardware validation.",
-    "stack.learning": "Simulation & policy optimization",
-    "stack.control": "Manipulator control & real-time communication",
-    "stack.dynamics": "Dynamics identification & numerical optimization",
-    "stack.planning": "Motion planning & hardware deployment",
-    "focus.title": "Current focus",
-    "focus.one": "Dual-arm contact-rich non-prehensile manipulation",
-    "focus.two": "Policy deployment under partial observability",
-    "focus.three": "Residual actuator models and transition alignment",
-    "focus.four": "Hybrid control, planning, and learning architectures",
-    "contact.title": "Robotics algorithms &<br /><span>hardware systems</span>",
-    "contact.copy": "I work on manipulator dynamics, contact-rich reinforcement learning, bilateral teleoperation, and Real-to-Sim. I welcome reproducible experiments and real hardware problems—simulation success is only half the job.",
-    "contact.github": "Visit my GitHub",
-    "footer.note": "IDENTIFY · CONTROL · OPTIMIZE · VALIDATE"
-  }
+// Chinese source copy lives in index.html so the page also works without JavaScript.
+const english = {
+  "skip": "Skip to projects",
+  "nav.roadmap": "Directions", "nav.projects": "Selected work", "nav.stack": "Capabilities", "nav.contact": "Contact",
+  "hero.art": "Mio Akiyama, Bruno Bucciarati and Sticky Fingers",
+  "hero.role": "Robotics Algorithm Engineer",
+  "hero.title": "Manipulator control & robot learning",
+  "hero.lead": "I develop dynamics identification, bilateral force-feedback control and contact-rich policies for manipulators. My work starts with friction, tracking error and limited observations on hardware, and extends to actuator modeling and policy training in simulation.",
+  "hero.a": "Low-resistance guiding & bilateral force feedback",
+  "hero.b": "Dynamics identification & Real-to-Sim",
+  "hero.c": "Contact-rich bimanual manipulation",
+  "hero.work": "Read the case studies",
+  "scope": "Hardware problems define the model. Error analysis guides the next iteration.",
+  "roadmap.title": "Two directions, a shared dynamics foundation",
+  "roadmap.lead": "Gravity and friction identification supports both lines of work: improving physical interaction, and modeling simulation dynamics for contact-rich learning.",
+  "roadmap.base": "Gravity & harmonic-drive friction identification",
+  "roadmap.basecopy": "Excitation design · Bidirectional data separation · Weighted regression & regularization · Current-feedforward validation",
+  "roadmap.astate": "Closed-loop hardware validation",
+  "roadmap.a": "Bilateral force-feedback teleoperation",
+  "roadmap.acopy": "Use identified models for feedforward compensation on both arms, tuning control for low guiding resistance, joint synchronization and contact feedback.",
+  "roadmap.apath": "Identification → Current feedforward → Bilateral control → Hardware tests",
+  "roadmap.alink": "Read the control case ↗",
+  "roadmap.bstate": "Modeling & simulation research",
+  "roadmap.b": "Real-to-Sim & contact-rich manipulation",
+  "roadmap.bcopy": "Learn actuator residuals around a physics-based model to reduce transition mismatch, with a further research focus on bimanual non-prehensile manipulation.",
+  "roadmap.bpath": "Dynamics priors → Residual modeling → Contact tasks → Transfer evaluation",
+  "roadmap.blink": "Read the modeling & learning cases ↗",
+  "roadmap.note": "This map describes the methodological links and research direction. Task-level benefits from integrating actuator residuals into contact policies, and hardware transfer, still require validation.",
+  "projects.title": "Problems I work on",
+  "projects.lead": "My work spans data collection, system identification, control implementation, simulation training and error diagnosis at the algorithm–hardware interface.",
+  "label.problem": "Problem",
+  "label.contribution": "My implementation & key methods",
+  "label.evidence": "Evidence & scope",
+  "label.ability": "Capabilities demonstrated",
+  "teleop.title": "Low-resistance guiding & bilateral feedback with harmonic-drive arms",
+  "teleop.state": "Hardware control loop",
+  "teleop.problem": "Stiction and reversal hysteresis increase breakaway effort and cause low-speed stick-slip. Under-compensation leaves resistance; over-compensation can cause drift or oscillation. Bilateral synchronization and contact feedback further couple these effects.",
+  "teleop.m1": "Identify gravity and friction separately on the leader and follower arms; apply current feedforward to compensate the robot's own load and low-speed resistance.",
+  "teleop.m2": "Implement bilateral PD synchronization and damping, with a follower-side disturbance-observer residual term for tracking error.",
+  "teleop.m3": "Tune velocity dead zones, filtering and compensation limits around start–stop, reversal and contact tests; analyze the coupling between stiction, timing and control parameters.",
+  "teleop.rate": "Compensation and command update rate, not force-feedback bandwidth.",
+  "teleop.resulttitle": "Behaviors validated on hardware",
+  "teleop.result": "Gravity balance, low-resistance guiding, joint synchronization and contact-resistance feedback.",
+  "teleop.boundary": "PD-only stationary tracking error is approximately 1°–2°. Low-speed stiction and reversal feel remain optimization targets.",
+  "teleop.ability": "Non-ideal dynamics analysis · Feedforward/feedback co-design · Hardware debugging",
+  "r2s.title": "Physical parameter identification & learned actuator residuals",
+  "r2s.state": "Trajectory replay evaluation",
+  "r2s.problem": "URDF parameters and ideal PD alone do not reproduce real actuator friction and response. A small one-step fitting error does not guarantee consistent multi-step closed-loop trajectories.",
+  "r2s.m1": "Design low-speed bidirectional and multi-velocity constant-speed data collection; separate gravity and directional friction, using WLS, regularization and static anchors to address parameter coupling and insufficient excitation.",
+  "r2s.m2": "Build an explicit PD baseline plus a history-conditioned neural residual torque model, integrating the physics prior and learned component into Isaac Lab's actuator interface.",
+  "r2s.m3": "Optimize joint-state errors through multi-step PPO rollouts; compare position and velocity trajectories to diagnose accumulated closed-loop error.",
+  "r2s.position": "Approximately 23.5% relative reduction in position RMSE.",
+  "r2s.boundary": "These results measure simulation replay alignment on existing test trajectories. They assess model consistency, not hardware policy success.",
+  "r2s.ability": "Identifiability & experiment design · Physics/neural modeling · Multi-step dynamics evaluation",
+  "rl.title": "Contact coordination & stable release in bimanual box reorientation",
+  "rl.state": "Simulation policy research",
+  "rl.problem": "Reaching the target box angle does not complete the task. A policy can exploit table friction instead of bimanual support, or destabilize the box during withdrawal. Contact transitions, landing and release require distinct models and acceptance criteria.",
+  "rl.m1": "Build dual-arm pushing, support and tipping tasks in Isaac Lab, using PPO and a 30°→50°→90° staged curriculum.",
+  "rl.m2": "Design contact and geometric constraints, withdrawal gates and termination conditions; adjust rewards for failures such as a correct angle with residual contact.",
+  "rl.m3": "Evaluate angle error, landing stability, end-effector clearance and release separately; continue testing robustness to friction, dimensions and initial-pose randomization.",
+  "rl.envs": "Training configuration: parallel Isaac Lab simulation environments.",
+  "rl.resulttitle": "Task acceptance criteria",
+  "rl.check1": "Target pose & stable landing",
+  "rl.check2": "Contact release & arm withdrawal",
+  "rl.check3": "Randomized conditions & failure distribution",
+  "rl.boundary": "Fixed-initial-state results do not establish success under randomized conditions. Domain randomization and limited observations remain research topics; hardware transfer is not yet validated.",
+  "rl.ability": "Contact-task abstraction · Curriculum & reward design · Policy failure diagnosis",
+  "demos.title": "Planning & collision checking",
+  "demos.lead": "Motion generation and geometry checks for dual-arm systems.",
+  "demos.planning.title": "14-DoF joint-space motion planning",
+  "demos.planning.copy": "Use cuRobo to address two end-effector targets and collision constraints in joint configuration space, demonstrating coordinated bimanual trajectories.",
+  "demos.collision.title": "Dual-arm self-collision checking",
+  "demos.collision.copy": "Visualize collision-geometry checks during arm motion to investigate link interference and model-configuration issues.",
+  "demos.fallback": "Open video",
+  "demos.open": "Play separately ↗",
+  "demos.button": "Button pressing: combine visual lateral alignment, incremental depth exploration and end-effector F/T-triggered contact in a closed-loop state machine.",
+  "stack.title": "Between models, algorithms & hardware",
+  "stack.lead": "Turn observed behavior into identifiable models, executable controllers and testable task conditions.",
+  "stack.model": "Diagnose models through data",
+  "stack.modelcopy": "Use bidirectional sampling, static anchors and error decomposition to distinguish gravity bias, asymmetric friction and parameter coupling.",
+  "stack.modelref": "Case: system identification ↗",
+  "stack.control": "Close the loop on hardware",
+  "stack.controlcopy": "Tune feedforward, feedback gains and damping alongside current control, communication timing and sensor noise.",
+  "stack.controlref": "Case: bilateral teleoperation ↗",
+  "stack.learning": "Read training defects in policy behavior",
+  "stack.learningcopy": "Translate support failures, early withdrawal and residual contact into changes to curricula, rewards and acceptance criteria.",
+  "stack.learningref": "Case: contact-rich manipulation ↗",
+  "focus.title": "Questions still under investigation",
+  "focus.one": "Stiction compensation: further improve low-speed start–stop and reversal behavior.",
+  "focus.two": "Domain randomization: distinguish training coverage from actual policy generalization.",
+  "focus.three": "Partial observability: evaluate missing object velocity, angular velocity and continuous pose measurements.",
+  "contact.title": "Discuss the model. And the failure cases.",
+  "contact.copy": "I welcome research and engineering discussions on manipulator control, dynamics identification and robot learning.",
+  "contact.note": "Friction does not read papers. It does check our models.",
+  "footer.top": "Back to top ↑"
 };
 
 const root = document.documentElement;
 const languageButton = document.querySelector("#language-toggle");
 const themeButton = document.querySelector("#theme-toggle");
+const copyNodes = Array.from(document.querySelectorAll("[data-i18n]"));
+const altNodes = Array.from(document.querySelectorAll("[data-i18n-alt]"));
+const chinese = Object.fromEntries([
+  ...copyNodes.map(node => [node.dataset.i18n, node.textContent]),
+  ...altNodes.map(node => [node.dataset.i18nAlt, node.alt])
+]);
+const descriptions = {
+  zh: "Erwin · 机器人算法工程师。聚焦谐波减速器摩擦辨识、双边力反馈遥操作、残差执行器 Real-to-Sim 与双臂接触操作。",
+  en: "Erwin · Robotics Algorithm Engineer. Harmonic-drive friction identification, bilateral force-feedback control, residual actuator modeling and contact-rich bimanual learning."
+};
 
-function setLanguage(language) {
-  const dictionary = translations[language];
-  document.querySelectorAll("[data-i18n]").forEach((element) => {
-    const value = dictionary[element.dataset.i18n];
-    if (value) element.textContent = value;
-  });
-  document.querySelectorAll("[data-i18n-html]").forEach((element) => {
-    const value = dictionary[element.dataset.i18nHtml];
-    if (value) element.innerHTML = value;
-  });
-
-  root.lang = language === "zh" ? "zh-CN" : "en";
-  languageButton.textContent = language === "zh" ? "EN" : "中";
-  languageButton.setAttribute("aria-label", language === "zh" ? "Switch to English" : "切换到中文");
-  localStorage.setItem("erwin-language", language);
+function readPreference(key, fallback) {
+  try { return localStorage.getItem(key) || fallback; } catch { return fallback; }
 }
-
-function setTheme(theme) {
+function savePreference(key, value) {
+  try { localStorage.setItem(key, value); } catch { /* The page remains usable without storage. */ }
+}
+function updateThemeLabel() {
+  const dark = root.dataset.theme === "dark";
+  const zh = root.lang === "zh-CN";
+  themeButton.setAttribute("aria-pressed", String(dark));
+  themeButton.setAttribute("aria-label", zh ? (dark ? "切换为浅色模式" : "切换为深色模式") : (dark ? "Use light theme" : "Use dark theme"));
+}
+function setLanguage(value) {
+  const language = value === "en" ? "en" : "zh";
+  const dictionary = language === "en" ? english : chinese;
+  copyNodes.forEach(node => { node.textContent = dictionary[node.dataset.i18n] ?? chinese[node.dataset.i18n]; });
+  altNodes.forEach(node => { node.alt = dictionary[node.dataset.i18nAlt] ?? chinese[node.dataset.i18nAlt]; });
+  root.lang = language === "en" ? "en" : "zh-CN";
+  languageButton.textContent = language === "en" ? "中" : "EN";
+  languageButton.setAttribute("aria-label", language === "en" ? "切换到中文" : "Switch to English");
+  document.querySelector('meta[name="description"]').content = descriptions[language];
+  savePreference("erwin-language", language);
+  updateThemeLabel();
+}
+function setTheme(value) {
+  const theme = value === "dark" ? "dark" : "light";
   root.dataset.theme = theme;
-  themeButton.setAttribute("aria-label", theme === "light" ? "Use dark theme" : "Use light theme");
-  localStorage.setItem("erwin-theme", theme);
+  document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#101d35" : "#ffffff";
+  savePreference("erwin-theme", theme);
+  updateThemeLabel();
 }
-
-languageButton.addEventListener("click", () => {
-  setLanguage(root.lang.startsWith("zh") ? "en" : "zh");
-});
-
-themeButton.addEventListener("click", () => {
-  setTheme(root.dataset.theme === "light" ? "dark" : "light");
-});
-
-const preferredLanguage = localStorage.getItem("erwin-language") || "zh";
-const preferredTheme = localStorage.getItem("erwin-theme") || "light";
-
-setLanguage(preferredLanguage);
-setTheme(preferredTheme);
+languageButton.addEventListener("click", () => setLanguage(root.lang === "en" ? "zh" : "en"));
+themeButton.addEventListener("click", () => setTheme(root.dataset.theme === "dark" ? "light" : "dark"));
+setLanguage(readPreference("erwin-language", "zh"));
+setTheme(readPreference("erwin-theme", "light"));
 document.querySelector("#year").textContent = new Date().getFullYear();
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.12 }
-);
-
-document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
